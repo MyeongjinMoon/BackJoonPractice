@@ -13,11 +13,7 @@ cin.tie(NULL); cout.tie(NULL);
 
 int n, k;
 cin >> n >> k;
-
-int** map = (int**)calloc(sizeof(int*), n + 1);
-for (int i = 0; i <= n; i++)
-	map[i] = (int*)calloc(sizeof(int), n + 1);
-
+    
 int** sum_map = (int**)calloc(sizeof(int*), n + 1);
 for (int i = 0; i <= n; i++)
 	sum_map[i] = (int*)calloc(sizeof(int), n + 1);
@@ -28,9 +24,7 @@ for (int i = 1; i <= n; i++)
 		int num;
 		cin >> num;
 
-		map[i][j] = num;
-
-		sum_map[i][j] = map[i][j] + sum_map[i][j - 1] + sum_map[i - 1][j] - sum_map[i - 1][j - 1];
+		sum_map[i][j] = num + sum_map[i][j - 1] + sum_map[i - 1][j] - sum_map[i - 1][j - 1];
 	}
 
 for (int i = 0; i < k; i++)
